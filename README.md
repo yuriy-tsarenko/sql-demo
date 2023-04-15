@@ -11,23 +11,23 @@
 
 ### DB Entity relationships:
 
-ONE TO ONE
+**ONE TO ONE**
 ![one-to-one.png](assets/one-to-one.png)
 
-ONE TO MANY
+**ONE TO MANY**
 ![one-to-many.png](assets/one-to-many.png)
 
-MANY TO MANY
+**MANY TO MANY**
 ![many-to-many.png](assets/many-to-many.png)
 
 ### JOINS:
-INNER JOIN
+**INNER JOIN**
 ![inner-join.png](assets/inner-join.png)
 
-LEFT JOIN
+**LEFT JOIN**
 ![left-join.png](assets/left-join.png)
 
-RIGHT JOIN
+**RIGHT JOIN**
 ![right-join.png](assets/right-join.png)
 
 **Links:**
