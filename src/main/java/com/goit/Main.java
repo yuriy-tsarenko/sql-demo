@@ -2,6 +2,7 @@ package com.goit;
 
 import java.io.InputStream;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
@@ -18,7 +19,7 @@ public class Main {
     private static final String URL_IN_MEMORY = "jdbc:h2:mem:local";
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "12345";
-    private static final String DB_STRUCTURE_LOCATION = "db/db-structure.sql";
+    private static final String DB_STRUCTURE_LOCATION = "db/migration/init_db.sql";
 
 
     public static void main(String[] args) {
@@ -30,15 +31,22 @@ public class Main {
                 builder.append(scanner.nextLine());
             }
             repository.execute(builder.toString());
-            repository.execute("INSERT INTO user_account(id,username,age) VALUES(1,'test_user',20);");
-            ResultSet resultSet = repository.executeQuery("SELECT * FROM user_account");
-            resultSet.first();
-            Integer id = resultSet.getInt("id");
-            String username = resultSet.getString("username");
-            Integer age = resultSet.getInt("age");
-            System.out.println("id: " + id + " username: " + username + " age: " + age);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Example of {@link ResultSet} usage
+     */
+    private static void resultSetManageExample(H2Repository repository) throws SQLException {
+        ResultSet resultSet = repository.executeQuery("SELECT * FROM user_account");
+        resultSet.first();
+        Integer id = resultSet.getInt("id");
+        String username = resultSet.getString("username");
+        Integer age = resultSet.getInt("age");
+        System.out.println("id: " + id + " username: " + username + " age: " + age);
+    }
+
+
 }
